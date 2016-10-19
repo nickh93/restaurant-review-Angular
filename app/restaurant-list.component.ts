@@ -4,8 +4,15 @@ import { Restaurant } from "./restaurant.model";
 @Component ({
   selector: 'restaurant-list',
   template: `
-  <div *ngFor="let currentRestaurant of childRestaurantList">
-  <restaurant-display [restaurant]="currentRestaurant"></restaurant-display>
+  <select (change)="onChange($event.target.value)">
+    <option value="all">All Cuisines</option>
+    <option value="italian">Italian</option>
+    <option value="vietnamese">Vietnamese</option>
+    <option value="american">American</option>
+    <option value="korean">Korean</option>
+  </select>
+  <div *ngFor="let currentRestaurant of childRestaurantList | cuisine:selectedCuisine">
+    <restaurant-display [restaurant]="currentRestaurant"></restaurant-display>
   </div>
 
   `
@@ -13,5 +20,9 @@ import { Restaurant } from "./restaurant.model";
 
 export class RestaurantListComponent {
   @Input() childRestaurantList: Restaurant[];
-
+  public selectedCuisine: string = "all";
+  onChange(optionFromMenu) {
+    this.selectedCuisine = optionFromMenu;
+    console.log(this.selectedCuisine);
+  }
 }
