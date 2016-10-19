@@ -13,5 +13,5 @@ import { Restaurant } from "./restaurant.model";
 
 export class RestaurantListComponent {
   @Input() childRestaurantList: Restaurant[];
-  @Output() clickSender = new EventEmitter();
+
 }
