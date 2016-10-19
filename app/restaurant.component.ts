@@ -14,7 +14,6 @@ import { Restaurant } from './restaurant.model';
         <li>Location: {{ restaurant.address }}</li>
         <li>{{ restaurant.price }}</li>
         <li>Id: {{ restaurant.id }}</li>
-        <li>Rating: {{ restaurant.rating }}</li>
       </ul>
     </div>
   </ul>
